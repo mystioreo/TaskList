@@ -1,2 +1,15 @@
-<h1>Tasks#index</h1>
-<p>Find me in app/views/tasks/index.html.erb</p>
+
+    <h3>Your Tasks</h3>
+    <ol>
+      <% @tasks.each do |task| %>
+      <li>
+        <p id='title'> <strong><a href='/tasks/<%= task.id %>'> <%= task.title %></a></strong></p>
+        <p id='date'>Due: <%= task.completion_date %>   |</p>
+        <p id='status'>   <%= task.status %>   |</p>
+        <p id='edit'>   <%= link_to "Edit", edit_task_path(task.id) %>   | </p>
+        <p id='delete'>   Delete</p>
+      </li>
+    <% end %>
+    </ol>
+
+</main

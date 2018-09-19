@@ -1,0 +1,11 @@
+<h2>Task: <%= @task[:title] %> </h2>
+<ul>
+  <li>Status: <%= @task[:status] %></li>
+  <li>Description: <%= @task[:description] %></li>
+  <li>Completion Date:
+      <% if !@task[:completion_date] %>
+          incomplete
+      <% else %>
+        <%= @task[:completion_date] %>
+      <% end %></li>
+</ul>

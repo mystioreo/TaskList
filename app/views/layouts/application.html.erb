@@ -10,6 +10,16 @@
   </head>
 
   <body>
-    <%= yield %>
+    <h1>Tasklist</h1>
+
+    <main>
+      <nav>
+        <h2><%= link_to "Add Task", new_task_path %> </h2>
+        <h2>All Tasks</h2>
+      </nav>
+
+      <section id='taskbox'>
+        <%= yield %>
+      </section>
   </body>
 </html>
