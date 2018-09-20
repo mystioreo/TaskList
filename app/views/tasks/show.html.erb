@@ -1,12 +1,22 @@
 <h2>Task: <%= @task.title %> </h2>
 <ul>
   <li>Description: <%= @task.description %></li>
+
   <li>Completion Date:
       <% if !@task.completion_date %>
           incomplete
       <% else %>
         <%= @task.completion_date %>
-      <% end %></li>
+      <% end %>
+  </li>
+
+  <li><% if !@task.completion_date %>
+        <%= link_to 'Mark Complete', mark_complete_path(@task.id), method: :patch %>
+      <% else %>
+        <%= link_to 'Undo Mark Complete', undo_mark_complete_path(@task.id), method: :patch %>
+      <% end %>
+  </li>
+
   <li><%= link_to "Edit", edit_task_path(@task.id) %></li>
   <li><%= link_to "Delete", task_path(@task.id), method: :delete, data: {confirm: "Delete Task: #{@task.title}?"} %></li>
 </ul>
