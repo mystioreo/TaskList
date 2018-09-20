@@ -26,6 +26,7 @@ class TasksController < ApplicationController
   end
 
   def update
+    #figure out how to simplify this
     @task = Task.find_by(id: params[:id].to_i)
     @task.title = params[:task][:title]
     @task.description = params[:task][:description]
@@ -42,5 +43,8 @@ class TasksController < ApplicationController
     end
   end
 
+  def destroy
+    Task.destroy(params[:id])
+  end
 
 end
