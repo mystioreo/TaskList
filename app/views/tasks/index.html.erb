@@ -4,6 +4,7 @@
       <% @tasks.each do |task| %>
       <li>
         <p id='title'> <strong><a href='/tasks/<%= task.id %>'> <%= task.title %></a></strong></p>
+        <p id='mark_complete'>   <%= link_to 'Mark Complete', mark_complete_path(task.id), method: :patch %><   |/p>
         <p id='edit'>   <%= link_to "Edit", edit_task_path(task.id) %>   | </p>
         <p id='delete'>   <%= link_to "Delete", task_path(task.id), method: :delete, data: {confirm: "Delete Task: #{task.title}?"} %></p>
       </li>

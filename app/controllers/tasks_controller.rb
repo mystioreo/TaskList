@@ -1,3 +1,5 @@
+require 'date'
+
 class TasksController < ApplicationController
   def index
     @tasks = Task.all.order(:completion_date)
@@ -30,7 +32,7 @@ class TasksController < ApplicationController
     @task = Task.find_by(id: params[:id].to_i)
     @task.title = params[:task][:title]
     @task.description = params[:task][:description]
-    @task.completion_date = params[:task][:completion_date]
+
 
     # if @task.update_attributes(params[:task])
     #   redirect_to tasks_path
@@ -49,4 +51,11 @@ class TasksController < ApplicationController
     end
   end
 
+  def mark_complete
+    @task = Task.find_by(id: params[:id].to_i)
+    @task.completion_date = Date.today
+    if @task.save 
+      redirect_to tasks_path
+    end
+  end
 end
