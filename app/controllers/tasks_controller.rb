@@ -15,11 +15,11 @@ class TasksController < ApplicationController
   end
 
   def create
-    @task = Task.new(description: params[:task][:description], title: params[:task][:title], completion_date: params[:task][:completion_date]) #instantiate a new task
-    if @task.save # save returns true if the database insert succeeds
-      redirect_to root_path # go to the index so we can see the task in the list
-    else # save failed :(
-      render :new # show the new task form view again
+    @task = Task.new(task_params)
+    if @task.save
+      redirect_to root_path
+    else
+      render :new
     end
   end
 
@@ -29,11 +29,10 @@ class TasksController < ApplicationController
 
   def update
     @task = Task.find_by(id: params[:id].to_i)
-
     if @task.update(task_params)
       redirect_to root_path
     else
-      render :edit 
+      render :edit
     end
   end
 
