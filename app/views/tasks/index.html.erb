@@ -6,9 +6,8 @@
         <p id='title'
           <% if task.completion_date %>
           class= 'strikethrough'
-          <% end %>
-          >
-          <strong><a href='/tasks/<%= task.id %>'> <%= task.title %></a></strong>
+          <% end %>  >
+          <strong><%=  link_to "#{task.title}", task_path(task.id) %></strong>
         </p>
 
         <% if !task.completion_date %>
