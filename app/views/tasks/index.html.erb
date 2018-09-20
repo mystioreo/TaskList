@@ -4,10 +4,8 @@
       <% @tasks.each do |task| %>
       <li>
         <p id='title'> <strong><a href='/tasks/<%= task.id %>'> <%= task.title %></a></strong></p>
-        <p id='date'>Due: <%= task.completion_date %>   |</p>
-        <p id='status'>   <%= task.status %>   |</p>
         <p id='edit'>   <%= link_to "Edit", edit_task_path(task.id) %>   | </p>
-        <p id='delete'>   Delete</p>
+        <p id='delete'>   <%= link_to "Delete", task_path(task.id) %></p>
       </li>
     <% end %>
     </ol>

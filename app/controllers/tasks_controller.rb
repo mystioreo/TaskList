@@ -30,7 +30,10 @@ class TasksController < ApplicationController
     @task.title = params[:task][:title]
     @task.description = params[:task][:description]
     @task.completion_date = params[:task][:completion_date]
-    
+
+    # if @task.update_attributes(params[:task])
+    #   redirect_to tasks_path
+    # end
     # @task = Task.new(description: params[:task][:description], title: params[:task][:title], completion_date: params[:task][:completion_date]) #instantiate a new task
     if @task.save # save returns true if the database insert succeeds
       redirect_to tasks_path # go to the index so we can see the task in the list

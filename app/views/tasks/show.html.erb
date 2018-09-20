@@ -1,11 +1,13 @@
-<h2>Task: <%= @task[:title] %> </h2>
+<h2>Task: <%= @task.title %> </h2>
 <ul>
-  <li>Status: <%= @task[:status] %></li>
-  <li>Description: <%= @task[:description] %></li>
+  <li>Description: <%= @task.description %></li>
   <li>Completion Date:
-      <% if !@task[:completion_date] %>
+      <% if !@task.completion_date %>
           incomplete
       <% else %>
-        <%= @task[:completion_date] %>
+        <%= @task.completion_date %>
       <% end %></li>
+  <li><%= link_to "Edit", edit_task_path(@task.id) %></li>
+  <li><%= link_to "Delete", delete_task_path(@task.id) %></li>
+
 </ul>
