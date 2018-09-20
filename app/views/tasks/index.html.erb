@@ -1,7 +1,7 @@
 
     <h3>Your Tasks</h3>
     <ol>
-      <% @tasks.each do |task| %>
+      <% @tasks.each do |task| %>  <!-- remember that @tasks is defined in the controller -->
       <li>
         <p id='title'
           <% if task.completion_date %>
@@ -13,11 +13,10 @@
 
         <% if !task.completion_date %>
         <p id='mark_complete'>   <%= link_to 'Mark Complete', mark_complete_path(task.id), method: :patch %>   | </p>
-
         <% else %>
         <p id='undo_mark_complete'>   <%= link_to 'Undo Mark Complete', undo_mark_complete_path(task.id), method: :patch %>   | </p>
-
         <% end %>
+
         <p id='edit'>   <%= link_to "Edit", edit_task_path(task.id) %>   | </p>
         <p id='delete'>   <%= link_to "Delete", task_path(task.id), method: :delete, data: {confirm: "Delete Task: #{task.title}?"} %></p>
       </li>
