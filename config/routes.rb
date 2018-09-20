@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get '/tasks/:id/edit', to: 'tasks#edit', as: 'edit_task'
 
   patch '/tasks/:id/mark_complete', to: 'tasks#mark_complete', as: 'mark_complete'
+  patch '/tasks/:id/undo_mark_complete', to: 'tasks#undo_mark_complete', as: 'undo_mark_complete'
 
   get '/tasks/:id', to: 'tasks#show', as: 'task'
 

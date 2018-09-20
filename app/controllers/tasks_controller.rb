@@ -54,8 +54,17 @@ class TasksController < ApplicationController
   def mark_complete
     @task = Task.find_by(id: params[:id].to_i)
     @task.completion_date = Date.today
-    if @task.save 
+    if @task.save
       redirect_to tasks_path
     end
   end
+
+  def undo_mark_complete
+    @task = Task.find_by(id: params[:id].to_i)
+    @task.completion_date = nil
+    if @task.save
+      redirect_to tasks_path
+    end
+  end
+
 end

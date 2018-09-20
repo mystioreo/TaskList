@@ -35,3 +35,7 @@ li {
 p:not(:first-child) {
   display: inline;
 }
+
+.strikethrough {
+  text-decoration: line-through;
+}
