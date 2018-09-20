@@ -28,20 +28,12 @@ class TasksController < ApplicationController
   end
 
   def update
-    #figure out how to simplify this
     @task = Task.find_by(id: params[:id].to_i)
-    @task.title = params[:task][:title]
-    @task.description = params[:task][:description]
 
-
-    # if @task.update_attributes(params[:task])
-    #   redirect_to tasks_path
-    # end
-    # @task = Task.new(description: params[:task][:description], title: params[:task][:title], completion_date: params[:task][:completion_date]) #instantiate a new task
-    if @task.save # save returns true if the database insert succeeds
-      redirect_to root_path # go to the index so we can see the task in the list
-    else # save failed :(
-      render :edit # show the new task form view again
+    if @task.update(task_params)
+      redirect_to root_path
+    else
+      render :edit 
     end
   end
 
@@ -65,6 +57,12 @@ class TasksController < ApplicationController
     if @task.save
       redirect_to root_path
     end
+  end
+
+  private
+
+  def task_params
+    return params.require(:task).permit(:title, :description)
   end
 
 end
