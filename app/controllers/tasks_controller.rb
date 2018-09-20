@@ -17,7 +17,7 @@ class TasksController < ApplicationController
   def create
     @task = Task.new(description: params[:task][:description], title: params[:task][:title], completion_date: params[:task][:completion_date]) #instantiate a new task
     if @task.save # save returns true if the database insert succeeds
-      redirect_to tasks_path # go to the index so we can see the task in the list
+      redirect_to root_path # go to the index so we can see the task in the list
     else # save failed :(
       render :new # show the new task form view again
     end
@@ -39,7 +39,7 @@ class TasksController < ApplicationController
     # end
     # @task = Task.new(description: params[:task][:description], title: params[:task][:title], completion_date: params[:task][:completion_date]) #instantiate a new task
     if @task.save # save returns true if the database insert succeeds
-      redirect_to tasks_path # go to the index so we can see the task in the list
+      redirect_to root_path # go to the index so we can see the task in the list
     else # save failed :(
       render :edit # show the new task form view again
     end
@@ -47,7 +47,7 @@ class TasksController < ApplicationController
 
   def destroy
     if Task.destroy(params[:id].to_i)
-      redirect_to tasks_path
+      redirect_to root_path
     end
   end
 
@@ -55,7 +55,7 @@ class TasksController < ApplicationController
     @task = Task.find_by(id: params[:id].to_i)
     @task.completion_date = Date.today
     if @task.save
-      redirect_to tasks_path
+      redirect_to root_path
     end
   end
 
@@ -63,7 +63,7 @@ class TasksController < ApplicationController
     @task = Task.find_by(id: params[:id].to_i)
     @task.completion_date = nil
     if @task.save
-      redirect_to tasks_path
+      redirect_to root_path
     end
   end
 
