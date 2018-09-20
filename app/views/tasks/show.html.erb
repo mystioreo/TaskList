@@ -8,6 +8,6 @@
         <%= @task.completion_date %>
       <% end %></li>
   <li><%= link_to "Edit", edit_task_path(@task.id) %></li>
-  <li><%= link_to "Delete", delete_task_path(@task.id) %></li>
+  <li><%= link_to "Delete", task_path(@task.id), method: :delete, data: {confirm: "Delete Task: #{@task.title}?"} %></li>
 
 </ul>

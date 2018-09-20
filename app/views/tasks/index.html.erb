@@ -5,7 +5,7 @@
       <li>
         <p id='title'> <strong><a href='/tasks/<%= task.id %>'> <%= task.title %></a></strong></p>
         <p id='edit'>   <%= link_to "Edit", edit_task_path(task.id) %>   | </p>
-        <p id='delete'>   <%= link_to "Delete", task_path(task.id), method: :delete, data: {confirm: "Are you sure you want to delete Task: #{task.name}?"} %></p>
+        <p id='delete'>   <%= link_to "Delete", task_path(task.id), method: :delete, data: {confirm: "Delete Task: #{task.title}?"} %></p>
       </li>
     <% end %>
     </ol>
