@@ -2,22 +2,24 @@
     <h3>Your Tasks</h3>
     <ol>
       <% @tasks.each do |task| %>  <!-- remember that @tasks is defined in the controller -->
-      <li>
-        <p id='title'
+      <li id= 'index_list'>
+        <p class='list_title'
           <% if task.completion_date %>
           class= 'strikethrough'
           <% end %>  >
           <strong><%=  link_to "#{task.title}", task_path(task.id) %></strong>
         </p>
 
-        <% if !task.completion_date %>
-        <p id='mark_complete'>   <%= link_to 'Mark Complete', mark_complete_path(task.id), method: :patch %>   | </p>
-        <% else %>
-        <p id='undo_mark_complete'>   <%= link_to 'Undo Mark Complete', undo_mark_complete_path(task.id), method: :patch %>   | </p>
-        <% end %>
 
-        <p id='edit'>   <%= link_to "Edit", edit_task_path(task.id) %>   | </p>
-        <p id='delete'>   <%= link_to "Delete", task_path(task.id), method: :delete, data: {confirm: "Delete Task: #{task.title}?"} %></p>
+        <p class='mark'>
+          <% if !task.completion_date %>
+            <%= link_to 'Mark Complete', mark_complete_path(task.id), method: :patch %>
+            <% else %>
+            <%= link_to 'Undo Mark Complete', undo_mark_complete_path(task.id), method: :patch %>
+        <% end %>
+           | </p>
+        <p class='edit'>   <%= link_to "Edit", edit_task_path(task.id) %>   | </p>
+        <p class='del'>   <%= link_to "Delete", task_path(task.id), method: :delete, data: {confirm: "Delete Task: #{task.title}?"} %></p>
       </li>
     <% end %>
     </ol>

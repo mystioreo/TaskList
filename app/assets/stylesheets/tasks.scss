@@ -11,9 +11,10 @@
    text-align: center;
    padding: 2px;
    margin: 10%;
-   font-family: 'Delius Unicase', cursive;
    font-size: 3rem;
  }
+
+ h1, h2, h3 {font-family: 'Delius Unicase', cursive;}
 
  nav {
    display: grid;
@@ -29,18 +30,33 @@
    border: 1px solid;
    border-radius: 10px;
    text-align: center;
-   padding: 2px;
+   padding: 5%;
    margin: 10%;
-
  }
 
+*[href] {
+  text-decoration: none;
+}
+
+.button {
+  padding-top: 5%;
+}
+
+#index_list, .title, .list_title, .mark, .edit, .del {
+  font-family: 'Dekko', cursive;
+}
+
+.list_title {
+  font-size: 1.2rem;
+  font-weight: bolder;
+}
 #taskbox {
   display: flex;
   flex-direction: column;
   border: 1px solid;
   border-radius: 5px;
   margin: 4%;
-  padding: 5%;
+  padding: 0% 5%;
   grid-column: 2;
 }
 
@@ -58,32 +74,31 @@
 
 #desc {
   grid-area: desc;
-  align-self: center;
-  font-family: 'Homemade Apple', cursive;
-  font-size: 1.5rem;
 }
 
 #comp {
   grid-area: comp;
+}
+
+#desc, #comp {
   align-self: center;
-  font-family: 'Homemade Apple', cursive;
+  font-family: 'Inconsolata', monospace;
   font-size: 1.5rem;
 }
 
-#mark {
+.mark {
   grid-area: mark;
-  align-self: center;
-  justify-self: center;
 }
 
-#edit {
+.edit {
   grid-area: edit;
-  align-self: center;
-  justify-self: center;
 }
 
-#del {
+.del {
   grid-area: del;
+}
+
+.mark, .edit, .del {
   align-self: center;
   justify-self: center;
 }

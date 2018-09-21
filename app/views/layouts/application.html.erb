@@ -7,7 +7,7 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <link href="https://fonts.googleapis.com/css?family=Delius+Unicase|Homemade+Apple" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Dekko|Delius+Unicase|Homemade+Apple" rel="stylesheet">
   </head>
 
   <body>
@@ -15,8 +15,8 @@
     <main>
       <nav>
         <h1>Tasklist</h1>
-        <h2><%= link_to "Add Task", new_task_path %> </h2>
-        <h2><%= link_to "All Tasks", tasks_path %> </h2>
+        <h2><%= link_to "add task", new_task_path, {class: 'button'} %> </h2>
+        <h2><%= link_to "all tasks", tasks_path, {class: 'button'} %> </h2>
       </nav>
 
       <section id='taskbox'>
