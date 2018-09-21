@@ -10,7 +10,8 @@
       <% end %>
   </p>
 
-  <p class= 'mark'><% if !@task.completion_date %>
+  <p class= 'mark'>
+      <% if !@task.completion_date %>
         <%= link_to 'Mark Complete', mark_complete_path(@task.id), method: :patch %>
       <% else %>
         <%= link_to 'Undo Mark Complete', undo_mark_complete_path(@task.id), method: :patch %>
