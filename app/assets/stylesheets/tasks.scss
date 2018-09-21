@@ -42,7 +42,7 @@
   padding-top: 5%;
 }
 
-#index_list, .title, .list_title, .mark, .edit, .del {
+#tasklist, .title, .list_title, .mark, .edit, .del {
   font-family: 'Dekko', cursive;
 }
 
@@ -115,6 +115,19 @@ p:not(:first-child) {
   display: inline;
 }
 
-.strikethrough {
+#strikethrough {
   text-decoration: line-through;
+  color: gray;
+}
+
+a:link, a:visited {
+    color: black;
+}
+
+a:hover {
+    color: hotpink;
+}
+
+a:active {
+    color: blue;
 }

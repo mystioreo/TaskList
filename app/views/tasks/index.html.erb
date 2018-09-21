@@ -1,11 +1,11 @@
 
     <h3>Your Tasks</h3>
-    <ol>
-      <% @tasks.each do |task| %>  <!-- remember that @tasks is defined in the controller -->
-      <li id= 'index_list'>
+    <ol id= 'task_list'>
+      <% @tasks.each do |task| %> 
+      <li>
         <p class='list_title'
           <% if task.completion_date %>
-          class= 'strikethrough'
+          id= 'strikethrough'
           <% end %>  >
           <strong><%=  link_to "#{task.title}", task_path(task.id) %></strong>
         </p>
