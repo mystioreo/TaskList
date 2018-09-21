@@ -46,7 +46,7 @@ class TasksController < ApplicationController
     @task = Task.find_by(id: params[:id].to_i)
     @task.completion_date = Date.today
     if @task.save
-      redirect_to root_path
+       redirect_to root_path
     end
   end
 

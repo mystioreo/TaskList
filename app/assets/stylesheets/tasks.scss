@@ -152,14 +152,15 @@ p:not(:first-child) {
 
 #strikethrough, #strikethrough * {
   text-decoration: line-through;
-  text-decoration-color: hotpink;
+  text-decoration-color: black;
   color: gray;
 }
 
-#strikethrough::before {
-  content: '✔';
-  color: hotpink;
+#strikethrough::before, #strikethrough::after {
+  content: '|';
+  color: black;
 }
+
 
 a:link, a:visited {
     color: black;
