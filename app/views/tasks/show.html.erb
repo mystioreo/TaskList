@@ -1,22 +1,24 @@
-<h2>Task: <%= @task.title %> </h2>
-<ul>
-  <li>Description: <%= @task.description %></li>
+<link href="https://fonts.googleapis.com/css?family=Homemade+Apple" rel="stylesheet">
 
-  <li>Completion Date:
+<h2>Task: <%= @task.title %> </h2>
+<section id= 'show'>
+  <p id= 'desc'>Description: <%= @task.description %></p>
+
+  <p id= 'comp'>Completed:
       <% if !@task.completion_date %>
-          incomplete
+          Not Yet!
       <% else %>
         <%= @task.completion_date %>
       <% end %>
-  </li>
+  </p>
 
-  <li><% if !@task.completion_date %>
+  <p id= 'mark'><% if !@task.completion_date %>
         <%= link_to 'Mark Complete', mark_complete_path(@task.id), method: :patch %>
       <% else %>
         <%= link_to 'Undo Mark Complete', undo_mark_complete_path(@task.id), method: :patch %>
       <% end %>
-  </li>
+  </p>
 
-  <li><%= link_to "Edit", edit_task_path(@task.id) %></li>
-  <li><%= link_to "Delete", task_path(@task.id), method: :delete, data: {confirm: "Delete Task: #{@task.title}?"} %></li>
-</ul>
+  <p id= 'edit'><%= link_to "Edit", edit_task_path(@task.id) %></p>
+  <p id= 'del'><%= link_to "Delete", task_path(@task.id), method: :delete, data: {confirm: "Delete Task: #{@task.title}?"} %></p>
+</section>

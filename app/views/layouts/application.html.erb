@@ -7,13 +7,14 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="https://fonts.googleapis.com/css?family=Delius+Unicase|Homemade+Apple" rel="stylesheet">
   </head>
 
   <body>
-    <h1>Tasklist</h1>
 
     <main>
       <nav>
+        <h1>Tasklist</h1>
         <h2><%= link_to "Add Task", new_task_path %> </h2>
         <h2><%= link_to "All Tasks", tasks_path %> </h2>
       </nav>
