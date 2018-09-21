@@ -1,14 +1,14 @@
-<%= form_with model: @task, class: "task-form" do |f|%>
+<%= form_with model: @task, class: 'form' do |f|%>
   <p>Please make your changes here:</p>
 
-  <section class = 'form fields'>
+  <section>
   <%= f.label :title %>
   <%= f.text_field :title %>
 
   <%= f.label :description %>
   <%= f.text_field :description %>
 
-  <%= f.submit "Save Changes", class: "task-button" %>
+  <%= f.submit "Save Changes", class: "button" %>
   </section>
 
 <%end%>
